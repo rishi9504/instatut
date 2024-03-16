@@ -5,6 +5,7 @@ import SignInForm from "./_auth/forms/SignInForm";
 import SignUpForm from "./_auth/forms/SignUpForm";
 import AuthLayout from "./_auth/AuthLayout";
 import RootLayout from "./_root/RootLayout";
+import { Toaster } from "./components/ui/toaster";
 export default function App() {
   return (
     <main className="flex h-screen">
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/home" element={<Home />} />
         </Route>
       </Routes>
+      <Toaster />
     </main>
   );
 }
