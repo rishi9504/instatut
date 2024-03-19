@@ -1,5 +1,5 @@
 import { INewUser } from "@/types";
-import {  ID, Query } from "appwrite";
+import {  ID } from "appwrite";
 import { account, appwriteConfig, avatars, databases } from "./config";
 
 export async function createUserAccount(user: INewUser) {
@@ -88,5 +88,14 @@ export async function signInAccount(user: { email: string; password: string }) {
     } catch (error) {
       console.log(error);
       return null;
+    }
+  }
+
+  export async function signOutAccount() {
+    try {
+      const signOut = await account.deleteSession("current");
+      return signOut;
+    } catch (error) {
+      console.log(error);
     }
   }
